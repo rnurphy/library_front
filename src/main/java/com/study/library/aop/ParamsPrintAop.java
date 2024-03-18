@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class ParamsPrintAop {
+
     @Pointcut("@annotation(com.study.library.aop.annotation.ParamsPrintAspect)")
     private void pointCut() {}
 
