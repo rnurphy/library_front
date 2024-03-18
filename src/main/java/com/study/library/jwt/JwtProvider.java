@@ -26,7 +26,6 @@ public class JwtProvider {
         key = Keys.hmacShaKeyFor(Decoders.BASE64.decode(secret));
     }
 
-
     public String generateToken(User user) {
 
         int userId = user.getUserId();
@@ -34,14 +33,14 @@ public class JwtProvider {
 
         Collection<? extends GrantedAuthority> authorities = user.getAuthorities();
 
-        Date expireDate = new Date(new Date().getTime() + (1000 * 60 * 60 * 24));   // 하루가 더해진 날짜 객체
+        Date expireDate = new Date(new Date().getTime() + (1000 * 60 * 60 * 24));   // 하루가 더해진 날짜 객체(현재 시간 + 24시간)
 
         String accessToken = Jwts.builder()
                 .claim("userId", userId)
                 .claim("username", username)
                 .claim("authorities", authorities)
                 .setExpiration(expireDate)
-                .signWith(key, SignatureAlgorithm.HS256)
+                .signWith(key, SignatureAlgorithm.HS256)    // 암호화
                 .compact();
 
         return accessToken;

@@ -50,7 +50,7 @@ public class AuthService {
             throw new UsernameNotFoundException("사용자 정보를 다시 확인하세요");
         }
 
-        if(!passwordEncoder.matches(signinReqDto.getPassword(), user.getPassword())) {
+        if(!passwordEncoder.matches(signinReqDto.getPassword(), user.getPassword())) {  // ( raw, encoded )
             throw new BadCredentialsException("사용자 정보를 다시 확인하세요");
         }
 
