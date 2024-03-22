@@ -18,4 +18,6 @@ public interface UserMapper {
     public User findUserByOAuth2name(String oAuth2name);
 
     public int saveOAuth2(OAuth2 oAuth2);
+
+    public int modifyPassword(User user);
 }
