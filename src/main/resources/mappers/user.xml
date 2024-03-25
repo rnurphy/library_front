@@ -51,8 +51,6 @@
             (0, #{userId}, #{roleId}, now(), now())
     </insert>
 
-
-
     <select id="findRoleRegisterByUserIdAndRoleId" resultMap="RoleRegisterResultMap">
         select
             rrt.role_register_id,
@@ -136,32 +134,5 @@
         where
             user_id = #{userId}
     </update>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </mapper>
