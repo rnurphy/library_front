@@ -41,7 +41,7 @@ public class JwtProvider {
 
         Collection<? extends GrantedAuthority> authorities = user.getAuthorities();
 
-        Date expireDate = new Date(new Date().getTime() + (1000 * 60 * 60 * 24));   // 하루가 더해진 날짜 객체(현재 시간 + 24시간)
+        Date expireDate = new Date(new Date().getTime() + (1000 * 60 * 60 * 24 * 20));   // 하루가 더해진 날짜 객체(현재 시간 + 24시간)
 
         String accessToken = Jwts.builder()
                 .claim("userId", userId)

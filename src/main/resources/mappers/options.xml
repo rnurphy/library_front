@@ -19,7 +19,7 @@
         <result property="updateDate" column="update_date" />
     </resultMap>
 
-    <select id="getAllBookTypes" resultType="com.study.library.entity.BookType">
+    <select id="getAllBookTypes" resultMap="BookTypeResultMap">
         select
             book_type_id,
             book_type_name,
@@ -29,14 +29,14 @@
             book_type_tb
     </select>
 
-    <select id="getAllCategories" resultType="com.study.library.entity.Category">
+    <select id="getAllCategories" resultMap="CategoryResultMap">
         select
             category_id,
             category_name,
             create_date,
             update_date
         from
-            book_type_tb
+            category_tb
     </select>
 
 </mapper>

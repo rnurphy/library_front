@@ -24,7 +24,6 @@ public class OAuth2PrincipalUserService implements OAuth2UserService {
         String provider = userRequest.getClientRegistration().getClientName();
         Map<String, Object> newAttributes = null;
         String id = null;
-        System.out.println(attributes);
 
         switch (provider) {
             case "Google":

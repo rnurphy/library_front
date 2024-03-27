@@ -49,7 +49,6 @@ public class JwtAuthenticationFilter extends GenericFilter {
                 return;
             }
 
-            System.out.println(authentication);
             SecurityContextHolder.getContext().setAuthentication(authentication);   // null 일 때 403 Error
         }
 

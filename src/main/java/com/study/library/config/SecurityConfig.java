@@ -44,12 +44,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.cors();    // WebMvc 정책을 따라감
         http.csrf().disable();
         http.authorizeRequests()
-                .antMatchers("/server/**", "/auth/**")
-                .permitAll()
-                .antMatchers("/mail/authenticate")
-                .permitAll()
-                .anyRequest()
-                .authenticated()
+                .antMatchers("/server/**", "/auth/**").permitAll()
+                .antMatchers("/mail/authenticate").permitAll()
+                .antMatchers("/admin/**").hasRole("ADMIN")
+                .anyRequest().authenticated()
                 .and()
                 .addFilterAfter(permitAllFilter, LogoutFilter.class)
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
